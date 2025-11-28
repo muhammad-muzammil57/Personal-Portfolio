@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Muzammil — About us</title>
+<style>
+:root{
+  --bg:#0b0f1a;
+  --glass: rgba(255,255,255,0.04);
+  --accent:#00b4ff;
+  --accent-2:#7c3aed;
+  --neon: 0 0 6px rgba(0,180,255,0.9), 0 0 20px rgba(0,180,255,0.15);
+  --neon-2: 0 0 10px rgba(124,58,237,0.9), 0 0 24px rgba(124,58,237,0.12);
+  --glass-border: rgba(255,255,255,0.06);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+html,body{
+  min-height:100%;
+}
+body{
+  margin:0;
+  min-height:100%;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(0,180,255,0.06), transparent),
+              radial-gradient(800px 400px at 90% 80%, rgba(124,58,237,0.05), transparent),
+              var(--bg);
+  color:#e6eef8;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+  box-sizing:border-box;
+}
+.card{
+  width:100%;
+  max-width:1100px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:20px;
+  border:1px solid var(--glass-border);
+  box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+  overflow:hidden;
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:32px;
+  padding:36px;
+  box-sizing:border-box;
+}
+.intro{
+  padding:8px 12px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+.logo{
+  font-weight:700;
+  letter-spacing:1px;
+  font-size:14px;
+  color:rgba(255,255,255,0.85);
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:8px;
+  background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.03);
+  box-shadow: var(--neon);
+}
+h1{
+  font-size:40px;
+  margin:0;
+  line-height:1.1;
+  text-shadow: var(--neon);
+}
+.headline .neon{
+  color:var(--accent);
+  text-shadow: var(--neon);
+}
+.sub{
+  color:rgba(240,248,255,0.75);
+  font-size:15px;
+  opacity:0.95;
+  max-width:600px;
+}
+.intro-box{
+  margin-top:8px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:12px;
+  padding:18px;
+  border:1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 8px 30px rgba(2,6,23,0.5);
+  backdrop-filter: blur(6px) saturate(120%);
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float{
+  0%{ transform: translateY(0)}
+  50%{ transform: translateY(-6px)}
+  100%{ transform: translateY(0)}
+}
+.animated-intro{
+  font-weight:600;
+  font-size:18px;
+  color:#cfeeff;
+}
+.typewriter {
+  display:inline-block;
+  overflow:hidden;
+}
+@keyframes blink{50%{border-color:transparent}}
+.features{display:flex; gap:12px; margin-top:20px; flex-wrap:wrap; justify-content:center;}
+.feature{flex:1 1 180px; background:var(--glass); border-radius:12px; padding:12px; border:1px solid rgba(255,255,255,0.03);}
+.cta{
+  display:flex; gap:12px; margin-top:8px; justify-content:center;
+}
+.btn{
+  color: white;
+  padding:12px 16px; border-radius:12px; border:1px solid rgba(255,255,255,0.06);
+  background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  cursor:pointer; font-weight:700; box-shadow:var(--neon);
+}
+.secondary{opacity:0.85; font-weight:600}
+.footer{margin-top:16px; font-size:13px; color:rgba(200,210,220,0.6)}
+.key-stats{
+  margin-top:40px;
+  max-width:1100px;
+  width:100%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:20px;
+  border:1px solid var(--glass-border);
+  box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+  padding:32px;
+  box-sizing:border-box;
+  text-align:center;
+}
+.stats-title{
+  font-weight:700; font-size:20px; margin-bottom:20px;
+}
+.progress-grid{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.progress-wrap{
+  width:130px;
+  display:flex;
+  gap:10px;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.ring{
+  width:120px;
+  height:120px;
+  position:relative;
+}
+.ring svg{transform: rotate(-90deg); width:120px; height:120px}
+.ring circle.back{stroke:rgba(255,255,255,0.06); stroke-width:10; fill:none}
+.ring circle.front{stroke:var(--accent); stroke-width:10; stroke-linecap:round; fill:none; filter: drop-shadow(0 6px 14px rgba(0,180,255,0.14)); transition: stroke 0.6s ease}
+.ring .percent{
+  position:absolute;
+  inset:0; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:18px; color:rgba(255,255,255,0.95)
+}
+.label{
+  font-size:13px;
+  margin-top:6px;
+  color:rgba(220,230,255,0.9);
+}
+.accent-2 .ring circle.front{stroke:var(--accent-2)}
+.accent-2 .label{color:rgba(200,180,255,0.95); text-shadow: var(--neon-2)}
+.accent-1 .label{color:rgba(180,240,255,0.95); text-shadow: var(--neon)}
+@media (max-width:680px){
+  h1{font-size:28px}
+  .ring{width:100px;height:100px}
+  .ring svg{width:100px;height:100px}
+}
+</style>
+</head>
+<body>
+
+<div class="card" role="main">
+  <div class="intro">
+    <span class="logo">Muzammil</span>
+
+    <div class="headline">
+      <h1>Hi, I'm <span class="neon">Muhammad Muzammil</span><br>
+      <small style="font-weight:600;color:rgba(200,230,255,0.8)">Front-End / Full-Stack Web Developer</small></h1>
+    </div>
+
+    <div class="intro-box">
+      <div class="animated-intro">
+        <div class="typewriter" id="typewriter">Muhammad Muzammil.</div>
+      </div>
+
+      <p class="sub">I am a passionate web developer with over one year of hands-on experience creating modern, responsive websites. I specialize in building fast, user-friendly, and mobile-optimized web solutions that deliver both style and functionality.
+
+My skill set includes HTML, CSS, JavaScript, and popular frameworks/libraries such as React and Bootstrap. I also work with WordPress and develop custom web applications, tailoring every project to meet unique client requirements.
+
+I focus on delivering clean design and seamless user experiences, combining creative ideas with the latest technologies to craft websites that are both visually appealing and future-ready.</p>
+
+      <div class="features">
+        <div class="feature">
+          <strong>Projects</strong>
+          <div style="margin-top:6px">10+ completed — modern stacks, clean design.</div>
+        </div>
+        <div class="feature">
+          <strong>Tech</strong>
+          <div style="margin-top:6px">HTML • CSS • JS • React (optional) • Git</div>
+        </div>
+      </div>
+
+      <div class="cta">
+        <button class="btn" id="contactBtn">Hire Me</button>
+        <button class="btn secondary" id="downloadBtn">Download CV</button>
+      </div>
+
+      <div class="footer">Tip: reload the page to replay the progress circles animation.</div>
+    </div>
+  </div>
+</div>
+
+<section class="key-stats">
+  <div class="stats-title">Key Stats</div>
+  <div class="progress-grid">
+
+    <div class="progress-wrap accent-1">
+      <div class="ring" data-percent="85" data-color="accent-1">
+        <svg viewBox="0 0 100 100">
+          <circle class="back" cx="50" cy="50" r="40" />
+          <circle class="front" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="251.2" />
+        </svg>
+        <div class="percent">0%</div>
+      </div>
+      <div class="label">Years of Experience</div>
+    </div>
+
+    <div class="progress-wrap accent-2">
+      <div class="ring" data-percent="92" data-color="accent-2">
+        <svg viewBox="0 0 100 100">
+          <circle class="back" cx="50" cy="50" r="40" />
+          <circle class="front" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="251.2" />
+        </svg>
+        <div class="percent">0%</div>
+      </div>
+      <div class="label">Client Satisfaction</div>
+    </div>
+
+    <div class="progress-wrap accent-1">
+      <div class="ring" data-percent="78" data-color="accent-1">
+        <svg viewBox="0 0 100 100">
+          <circle class="back" cx="50" cy="50" r="40" />
+          <circle class="front" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="251.2" />
+        </svg>
+        <div class="percent">0%</div>
+      </div>
+      <div class="label">Projects Completed</div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', ()=>{
+  const rings = document.querySelectorAll('.ring');
+  rings.forEach((wrap, idx)=>{
+    const percent = Number(wrap.dataset.percent) || 0;
+    const svgFront = wrap.querySelector('circle.front');
+    const percentEl = wrap.querySelector('.percent');
+    const radius = 40;
+    const circumference = 2 * Math.PI * radius;
+    svgFront.style.strokeDasharray = circumference;
+    svgFront.style.strokeDashoffset = circumference;
+
+    if(wrap.dataset.color === 'accent-2'){
+      svgFront.style.stroke = getComputedStyle(document.documentElement).getPropertyValue('--accent-2').trim() || '#7c3aed';
+      svgFront.style.filter = 'drop-shadow(0 6px 14px rgba(124,58,237,0.12))';
+    } else {
+      svgFront.style.stroke = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#00b4ff';
+    }
+
+    const duration = 1200 + (idx*200);
+    const start = performance.now();
+    function animate(now){
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.floor(progress * percent);
+      const offset = circumference * (1 - (progress * percent/100));
+
+      svgFront.style.strokeDashoffset = offset;
+      percentEl.textContent = current + '%';
+
+      if(progress < 1) requestAnimationFrame(animate);
+      else percentEl.textContent = percent + '%';
+    }
+    requestAnimationFrame(animate);
+  });
+
+  document.getElementById('contactBtn').addEventListener('click', ()=>{
+    const gmailLink =
+      "https://mail.google.com/mail/?view=cm&fs=1&to=muzammiltechcanvas@gmail.com&su=Hire%20Me&body=Hello%20Muzammil,";
+    window.open(gmailLink, '_blank');
+  });
+
+   document.getElementById('downloadBtn').addEventListener('click', ()=>{
+    const cvLink = "https://drive.google.com/uc?export=download&id=1M9VZJsfmCiGXruYtl0SF-NjSKx51Viw6";
+    window.location.href = cvLink;   
+  });
+});
+</script>
+</body>
+</html>

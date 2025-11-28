@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WhatsApp-Contact us</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#050507;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial
+}
+.card{
+  width:320px;max-width:92vw;
+  padding:28px;
+  border-radius:18px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,0.03)
+}
+.logo-circle{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#00ff9d,#00c6ff);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 0 25px #00ff9d88,0 0 45px #00c6ff88;
+}
+.logo-circle img{
+  width:60%;
+  height:60%;
+  object-fit:contain;
+}
+
+.neon{
+  font-weight:700;
+  font-size:22px;
+  letter-spacing:1px;
+  color:#fff;
+  text-transform:uppercase;
+  margin-top:14px;
+  text-align:center;
+}
+
+.buttons{display:flex;gap:12px;width:100%}
+.btn{
+  flex:1;padding:12px 10px;
+  border-radius:12px;border:0;
+  cursor:pointer;font-weight:700;
+  font-size:15px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  transition:transform .12s ease,box-shadow .12s ease
+}
+.btn:active{transform:scale(.98)}
+.whatsapp{
+  background:linear-gradient(180deg,#00c851,#009688);
+  color:#021204;
+  box-shadow:0 6px 18px rgba(0,200,120,0.12),0 0 28px rgba(0,200,120,0.12)
+}
+.call{
+  background:linear-gradient(180deg,#ffd54f,#ffb300);
+  color:#2b1700;
+  box-shadow:0 6px 18px rgba(255,170,0,0.12),0 0 28px rgba(255,170,0,0.08)
+}
+.note{font-size:12px;color:rgba(255,255,255,0.65);text-align:center}
+</style>
+</head>
+<body>
+
+<div class="card">
+    <div class="logo-circle">
+        <img src="assets/download (1).jpeg" alt="WhatsApp Logo">
+    </div>
+
+    <div class="neon">Contact via WhatsApp</div>
+
+    <div class="buttons">
+        <button id="waBtn" class="btn whatsapp">WhatsApp</button>
+        <button id="callBtn" class="btn call">Call</button>
+    </div>
+
+    <div class="note">
+        Desktop: WhatsApp Web | Mobile: App or Dial Pad
+    </div>
+</div>
+
+<script>
+const PHONE_RAW = '03467597957';
+const PHONE_E164 = (function(){
+  let n = PHONE_RAW.replace(/[^0-9]/g,'');
+  if(n.startsWith('0')) n = '92' + n.slice(1);
+  if(!n.startsWith('92')) n = '92' + n;
+  return n;
+})();
+function isMobile(){return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)}
+document.getElementById('waBtn').addEventListener('click', function(){
+  const baseWeb = 'https://web.whatsapp.com/send?phone=' + PHONE_E164;
+  const baseAPI = 'https://api.whatsapp.com/send?phone=' + PHONE_E164;
+  if(isMobile()){location.href = baseAPI}else{window.open(baseWeb,'_blank')}
+});
+document.getElementById('callBtn').addEventListener('click', function(){
+  if(isMobile()){location.href = 'tel:' + PHONE_RAW}
+  else{window.open('https://web.whatsapp.com/send?phone=' + PHONE_E164,'_blank')}
+});
+</script>
+
+</body>
+</html>

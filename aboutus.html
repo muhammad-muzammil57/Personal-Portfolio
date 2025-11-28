@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muzammil-About Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1: #0b0f17;
+      --card: rgba(255,255,255,0.03);
+      --neon: #7ef0ff;
+      --accent: #9b7eff;
+      --glass: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      --glass-border: rgba(255,255,255,0.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(155,126,255,0.06), transparent 8%),
+        radial-gradient(1000px 500px at 90% 90%, rgba(126,240,255,0.04), transparent 12%),
+        var(--bg1);
+      color: #e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+    .about-wrap{
+      width:min(980px,95%);
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:28px;
+      align-items:center;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--glass-border);
+      border-radius:18px;
+      padding:28px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 40px rgba(126,240,255,0.02) inset;
+      position:relative;
+      overflow:hidden;
+    }
+    .neon-stripe{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(126,240,255,0.03), rgba(155,126,255,0.03));
+      mix-blend-mode:screen;
+      pointer-events:none;
+      filter:blur(40px);
+      opacity:.9;
+    }
+    .photo-card{
+      height:320px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08));
+      border-radius:14px;
+      border:1px solid rgba(126,240,255,0.08);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      position:relative;
+      padding:18px;
+      overflow:visible;
+    }
+    .avatar{
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      display:inline-block;
+      background-size:cover;
+      background-position:center;
+      box-shadow:
+        0 0 40px rgba(126,240,255,0.07),
+        0 0 10px rgba(155,126,255,0.04);
+      position:relative;
+      border:6px solid rgba(255,255,255,0.03);
+      transition:transform .45s ease;
+    }
+    .avatar::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      border-radius:50%;
+      box-shadow: 0 0 30px var(--neon), 0 0 60px rgba(155,126,255,0.18);
+      opacity:0.12;
+      transition:opacity .45s ease, transform .45s ease;
+      pointer-events:none;
+      transform:scale(.96);
+      z-index:-1;
+    }
+    .avatar:hover{transform:scale(1.06)}
+    .avatar:hover::after{opacity:1; transform:scale(1.02)}
+    .badge{
+      position:absolute;
+      left:20px;
+      top:20px;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:600;
+      font-size:13px;
+      letter-spacing:.6px;
+      color:rgba(5,12,18,0.98);
+      background:linear-gradient(90deg,var(--neon),var(--accent));
+      box-shadow:0 6px 20px rgba(155,126,255,0.14);
+    }
+    .info{
+      padding:6px 2px;
+    }
+    .title{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:8px;
+    }
+    .title h2{
+      margin:0;
+      font-size:26px;
+      font-weight:800;
+      letter-spacing:.6px;
+      text-transform:none;
+      line-height:1;
+      background:linear-gradient(90deg,var(--neon),var(--accent));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow:0 0 18px rgba(126,240,255,0.12);
+    }
+    .title .dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      box-shadow: 0 0 12px var(--neon), 0 0 24px rgba(155,126,255,0.18);
+      background:linear-gradient(180deg,var(--neon),var(--accent));
+    }
+    .subtitle{
+      margin:6px 0 18px 0;
+      color:rgba(230,238,248,0.8);
+      font-size:14px;
+      font-weight:500;
+    }
+    .bio{
+      font-size:15px;
+      line-height:1.6;
+      color:rgba(230,238,248,0.92);
+      margin-bottom:18px;
+    }
+    .chips{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+    .chip{
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:600;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+    }
+    .actions{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .btn{
+      padding:10px 16px;
+      border-radius:12px;
+      font-weight:700;
+      letter-spacing:.6px;
+      border:1px solid rgba(255,255,255,0.06);
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      cursor:pointer;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{
+      background:linear-gradient(90deg,var(--neon),var(--accent));
+      color:#04111a;
+      box-shadow:0 10px 40px rgba(126,240,255,0.08);
+    }
+    .btn-ghost{
+      color:rgba(230,238,248,0.9);
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    .glow-line{
+      height:2px;
+      width:100%;
+      margin:18px 0;
+      background:linear-gradient(90deg, transparent, rgba(126,240,255,0.16), transparent);
+      filter:blur(6px);
+    }
+    @media (max-width:880px){
+      .about-wrap{grid-template-columns:1fr; gap:16px; padding:20px}
+      .photo-card{height:260px}
+      .avatar{width:180px;height:180px}
+    }
+    @media (max-width:420px){
+      .avatar{width:150px;height:150px}
+      .title h2{font-size:20px}
+      .bio{font-size:14px}
+    }
+  </style>
+</head>
+<body>
+  <div class="about-wrap">
+    <div class="neon-stripe"></div>
+
+    <div class="photo-card">
+      <div class="badge">About</div>
+      <div class="avatar" style="background-image:url('gpt-image-1_thoraaaa_sa_km_white\ \(1\).png')"></div>
+    </div>
+
+    <div class="info">
+      <div class="title">
+        <div class="dot"></div>
+        <h2>I am Muzammil</h2>
+      </div>
+
+      <div class="subtitle">Front-end Developer • UI/UX enthusiast • Modern CSS lover</div>
+
+      <div class="bio">
+       I’m a passionate front-end developer who loves creating sleek, fast, and accessible interfaces.
+I use neon and modern design languages to build interactive experiences.
+If you need a project done or want to discuss a collaboration, feel free to contact me.
+      </div>
+
+      <div class="chips">
+        <div class="chip">HTML</div>
+        <div class="chip">CSS / Tailwind</div>
+        <div class="chip">JavaScript</div>
+        <div class="chip">React</div>
+        <div class="chip">Figma</div>
+      </div>
+
+      <div class="glow-line"></div>
+
+    </div>
+  </div>
+</body>
+</html>
